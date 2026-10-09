@@ -1,0 +1,29 @@
+<customUI xmlns="http://schemas.microsoft.com/office/2009/07/customui" onLoad="RibbonLoaded" loadImage="LoadImage">
+ <ribbon><tabs><tab id="CitographTab" label="Citograph">
+  <group id="CiteGroup" label="Citations">
+   <button id="InsertCitation" label="Insert Citation" size="large" image="insert" onAction="InsertClick" screentip="Find and insert sources" supertip="Search your Citograph library or this document's traveling library. Insert grouped citations with page locators, prefixes, and suffixes."/>
+   <button id="EditCitation" label="Edit Citation" image="edit" onAction="EditClick" screentip="Edit the selected citation" supertip="Change grouped sources, page numbers, author suppression, and citation text around the source."/>
+   <button id="UpdateCitations" label="Update Citations" image="update" onAction="UpdateClick" screentip="Reformat citations and references" supertip="Recalculate citation order, numbering, year disambiguation, and every Citograph bibliography in the active document."/>
+   <button id="ManageCitations" label="Manage Citations" image="navigate" onAction="ManageClick"/>
+  </group>
+  <group id="BibliographyGroup" label="Bibliography &amp; Style">
+   <button id="Bibliography" label="Insert Bibliography" size="large" image="bibliography" onAction="BibliographyClick" screentip="Create an editable bibliography" supertip="Insert a bibliography at the end of the document. Italics, numbering, and hanging indentation are preserved."/>
+   <dropDown id="CitationStyle" label="Style" getItemCount="StyleCount" getItemID="StyleId" getItemLabel="StyleLabel" getSelectedItemIndex="StyleIndex" onAction="StyleChanged" sizeString="Chicago author–date           "/>
+   <button id="RefreshMetadata" label="Refresh Source Metadata" image="refresh" onAction="RefreshClick" supertip="Refresh source snapshots from your Citograph desktop library, then update citations and references."/>
+   <button id="ExportBibliography" label="Export Bibliography" image="export" onAction="ExportClick"/>
+   <button id="StyleMaker" label="Style Studio" image="edit" onAction="StyleMakerClick" supertip="Create styles with the visual builder or Python Lab. Preview, save versions and apply them to Word."/>
+   <button id="RefreshStyles" label="Refresh Styles" image="refresh" onAction="RefreshStylesClick" supertip="Reload saved Citograph styles. Select a style to apply its latest saved version to this document."/>
+  </group>
+  <group id="LibraryGroup" label="Traveling Library">
+   <button id="TravelingLibrary" label="Traveling Library" size="large" image="travel" onAction="TravelingClick" screentip="The sources inside this document" supertip="Browse metadata embedded in Citograph citation fields. The sources travel with your Word file and with copied citation fields."/>
+   <button id="ImportTraveling" label="Import to Citograph" image="import" onAction="ImportClick" supertip="Bring sources cited in this document into the desktop library. Existing references are skipped."/>
+   <button id="ExportTraveling" label="Export Traveling Library" image="library-export" onAction="ExportTravelingClick" supertip="Save document sources as CSL JSON, RIS, or BibTeX."/>
+   <button id="OpenCitograph" label="Open Citograph" image="app" onAction="OpenClick"/>
+  </group>
+  <group id="ReviewGroup" label="Manuscript Tools">
+   <button id="DocumentCheck" label="Document Check" size="large" image="check" onAction="AuditClick" supertip="Find missing source metadata, damaged citations, duplicate field IDs, and bibliography status."/>
+   <button id="ConvertText" label="Convert to Plain Text" image="unlink" onAction="ConvertClick" supertip="Detach only Citograph citations and bibliography controls. Save a document copy first."/>
+   <button id="Help" label="Help &amp; About" image="help" onAction="HelpClick"/>
+  </group>
+ </tab></tabs></ribbon>
+</customUI>

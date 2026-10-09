@@ -1,0 +1,8 @@
+PMID- 99000001
+TI  - A synthetic reference import example.
+FAU - Example, Alice
+AU  - Example A
+DP  - 2026 Oct 9
+JT  - Example Journal
+AID - 10.1234/example [doi]
+AB  - Synthetic metadata for testing Citograph imports.

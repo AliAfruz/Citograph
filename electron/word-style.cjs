@@ -1,0 +1,12 @@
+const path=require('node:path');const {processResult}=require('./style-compiler.cjs');
+async function wordStyle(command,{descriptor,root,styleId,target}){
+ if(!['inspect','apply'].includes(command))throw new Error('Invalid Word command.');
+ const token=typeof target==='string'?target:target?.token,handle=target?.window;
+ if(handle!==undefined&&(!Number.isInteger(handle)||handle<=0||handle>4294967295))throw new Error('Invalid Word window.');
+ if(command==='apply'&&(!/^[a-zA-Z0-9-]+$/.test(styleId)||!/^\w{64}$/.test(token)))throw new Error('Invalid style or Word target.');
+ const exe=path.join(root,'word-addin/bin/Citograph.StyleHost.exe');
+ const r=await processResult(exe,[command,descriptor,...(command==='apply'?[styleId,token]:[]),...(handle!==undefined?[String(handle)]:[])],{},60000);
+ if(r.code!==0)throw new Error(r.stderr.trim()||'Word could not apply the style.');
+ return JSON.parse(r.stdout);
+}
+module.exports={wordStyle};

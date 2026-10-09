@@ -1,0 +1,19 @@
+node_modules/
+dist/
+release/
+test-results/
+*.log
+
+# Generated caches and local research data
+**/__pycache__/
+*.pyc
+*.sqlite
+*.sqlite-*
+*.citograph
+*.citograph.json
+*.pdf
+*.docx
+.env
+.env.*
+*.pem
+*.key

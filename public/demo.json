@@ -1,0 +1,904 @@
+[
+  {
+    "id": "demo-1",
+    "type": "article-journal",
+    "title": "The Chemistry and Applications of Metal-Organic Frameworks",
+    "author": [
+      {
+        "family": "Furukawa",
+        "given": "Hiroyasu"
+      },
+      {
+        "family": "Cordova",
+        "given": "Kyle E."
+      },
+      {
+        "family": "O’Keeffe",
+        "given": "Michael"
+      },
+      {
+        "family": "Yaghi",
+        "given": "Omar M."
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          2013,
+          8,
+          30
+        ]
+      ]
+    },
+    "container-title": "Science",
+    "volume": "341",
+    "issue": "6149",
+    "page": "",
+    "DOI": "10.1126/science.1230444",
+    "URL": "https://doi.org/10.1126/science.1230444",
+    "abstract": "Background Metal-organic frameworks (MOFs) are made by linking inorganic and organic units by strong bonds (reticular synthesis). The flexibility with which the constituents’ geometry, size, and functionality can be varied has led to more than 20,000 different MOFs being reported and studied within the past decade. The organic units are ditopic or polytopic organic carboxylates (and other similar negatively charged molecules), which, when linked to metal-containing units, yield architecturally robust crystalline MOF structures with a typical porosity of greater than 50% of the MOF crystal volume. The surface area values of such MOFs typically range from 1000 to 10,000 m 2 /g, thus exceeding those of traditional porous materials such as zeolites and carbons. To date, MOFs with permanent porosity are more extensive in their variety and multiplicity than any other class of porous materials. These aspects have made MOFs ideal candidates for storage of fuels (hydrogen and methane), capture of carbon dioxide, and catalysis applications, to mention a few. Advances The ability to vary the size and nature of MOF structures without changing their underlying topology gave rise to the isoreticular principle and its application in making MOFs with the largest pore aperture (98 Å) and lowest density (0.13 g/cm 3 ). This has allowed for the selective inclusion of large molecules (e.g., vitamin B 12 ) and proteins (e.g., green fluorescent protein) and the exploitation of the pores as reaction vessels. Along these lines, the thermal and chemical stability of many MOFs has made them amenable to postsynthetic covalent organic and metal-complex functionalization. These capabilities enable substantial enhancement of gas storage in MOFs and have led to their extensive study in the catalysis of organic reactions, activation of small molecules (hydrogen, methane, and water), gas separation, biomedical imaging, and proton, electron, and ion conduction. At present, methods are being developed for making nanocrystals and supercrystals of MOFs for their incorporation into devices. Outlook The precise control over the assembly of MOFs is expected to propel this field further into new realms of synthetic chemistry in which far more sophisticated materials may be accessed. For example, materials can be envisaged as having (i) compartments linked together to operate separately, yet function synergistically; (ii) dexterity to carry out parallel operations; (iii) ability to count, sort, and code information; and (iv) capability of dynamics with high fidelity. Efforts in this direction are already being undertaken through the introduction of a large number of different functional groups within the pores of MOFs. This yields multivariate frameworks in which the varying arrangement of functionalities gives rise to materials that offer a synergistic combination of properties. Future work will involve the assembly of chemical structures from many different types of building unit, such that the structures’ function is dictated by the heterogeneity of the specific arrangement of their constituents.",
+    "citationCount": 16496,
+    "collections": [
+      "porous"
+    ],
+    "tags": [
+      "Metal–organic frameworks",
+      "Materials chemistry"
+    ],
+    "starred": true,
+    "status": "reading",
+    "source": "Crossref · demo library",
+    "addedAt": "2026-10-09T12:20:27.616Z",
+    "notes": "",
+    "method": "",
+    "evidence": "",
+    "limitations": "",
+    "attachments": [],
+    "annotations": [],
+    "demo": true
+  },
+  {
+    "id": "demo-2",
+    "type": "article-journal",
+    "title": "Reticular synthesis and the design of new materials",
+    "author": [
+      {
+        "family": "Yaghi",
+        "given": "Omar M."
+      },
+      {
+        "family": "O'Keeffe",
+        "given": "Michael"
+      },
+      {
+        "family": "Ockwig",
+        "given": "Nathan W."
+      },
+      {
+        "family": "Chae",
+        "given": "Hee K."
+      },
+      {
+        "family": "Eddaoudi",
+        "given": "Mohamed"
+      },
+      {
+        "family": "Kim",
+        "given": "Jaheon"
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          2003,
+          6
+        ]
+      ]
+    },
+    "container-title": "Nature",
+    "volume": "423",
+    "issue": "6941",
+    "page": "705-714",
+    "DOI": "10.1038/nature01650",
+    "URL": "https://doi.org/10.1038/nature01650",
+    "abstract": "",
+    "citationCount": 8118,
+    "collections": [
+      "porous"
+    ],
+    "tags": [
+      "Metal–organic frameworks",
+      "Reticular chemistry"
+    ],
+    "starred": false,
+    "status": "read",
+    "source": "Crossref · demo library",
+    "addedAt": "2026-10-09T12:10:27.923Z",
+    "notes": "",
+    "method": "",
+    "evidence": "",
+    "limitations": "",
+    "attachments": [],
+    "annotations": [],
+    "demo": true
+  },
+  {
+    "id": "demo-3",
+    "type": "article-journal",
+    "title": "Systematic Design of Pore Size and Functionality in Isoreticular MOFs and Their Application in Methane Storage",
+    "author": [
+      {
+        "family": "Eddaoudi",
+        "given": "Mohamed"
+      },
+      {
+        "family": "Kim",
+        "given": "Jaheon"
+      },
+      {
+        "family": "Rosi",
+        "given": "Nathaniel"
+      },
+      {
+        "family": "Vodak",
+        "given": "David"
+      },
+      {
+        "family": "Wachter",
+        "given": "Joseph"
+      },
+      {
+        "family": "O'Keeffe",
+        "given": "Michael"
+      },
+      {
+        "family": "Yaghi",
+        "given": "Omar M."
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          2002,
+          1,
+          18
+        ]
+      ]
+    },
+    "container-title": "Science",
+    "volume": "295",
+    "issue": "5554",
+    "page": "469-472",
+    "DOI": "10.1126/science.1067208",
+    "URL": "https://doi.org/10.1126/science.1067208",
+    "abstract": "A strategy based on reticulating metal ions and organic carboxylate links into extended networks has been advanced to a point that allowed the design of porous structures in which pore size and functionality could be varied systematically. Metal-organic framework (MOF-5), a prototype of a new class of porous materials and one that is constructed from octahedral Zn-O-C clusters and benzene links, was used to demonstrate that its three-dimensional porous system can be functionalized with the organic groups –Br, –NH 2 , –OC 3 H 7 , –OC 5 H 11 , –C 2 H 4 , and –C 4 H 4 and that its pore size can be expanded with the long molecular struts biphenyl, tetrahydropyrene, pyrene, and terphenyl. We synthesized an isoreticular series (one that has the same framework topology) of 16 highly crystalline materials whose open space represented up to 91.1% of the crystal volume, as well as homogeneous periodic pores that can be incrementally varied from 3.8 to 28.8 angstroms. One member of this series exhibited a high capacity for methane storage (240 cubic centimeters at standard temperature and pressure per gram at 36 atmospheres and ambient temperature), and others the lowest densities (0.41 to 0.21 gram per cubic centimeter) for a crystalline material at room temperature.",
+    "citationCount": 7902,
+    "collections": [
+      "porous"
+    ],
+    "tags": [
+      "Metal–organic frameworks",
+      "Gas storage"
+    ],
+    "starred": true,
+    "status": "unread",
+    "source": "Crossref · demo library",
+    "addedAt": "2026-10-09T12:00:28.257Z",
+    "notes": "",
+    "method": "",
+    "evidence": "",
+    "limitations": "",
+    "attachments": [],
+    "annotations": [],
+    "demo": true
+  },
+  {
+    "id": "demo-4",
+    "type": "article-journal",
+    "title": "Deep learning",
+    "author": [
+      {
+        "family": "LeCun",
+        "given": "Yann"
+      },
+      {
+        "family": "Bengio",
+        "given": "Yoshua"
+      },
+      {
+        "family": "Hinton",
+        "given": "Geoffrey"
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          2015,
+          5,
+          27
+        ]
+      ]
+    },
+    "container-title": "Nature",
+    "volume": "521",
+    "issue": "7553",
+    "page": "436-444",
+    "DOI": "10.1038/nature14539",
+    "URL": "https://doi.org/10.1038/nature14539",
+    "abstract": "",
+    "citationCount": 78121,
+    "collections": [
+      "learning"
+    ],
+    "tags": [
+      "Machine learning",
+      "Neural networks"
+    ],
+    "starred": true,
+    "status": "read",
+    "source": "Crossref · demo library",
+    "addedAt": "2026-10-09T11:50:28.480Z",
+    "notes": "",
+    "method": "",
+    "evidence": "",
+    "limitations": "",
+    "attachments": [],
+    "annotations": [],
+    "demo": true
+  },
+  {
+    "id": "demo-5",
+    "type": "article-journal",
+    "title": "Mastering the game of Go with deep neural networks and tree search",
+    "author": [
+      {
+        "family": "Silver",
+        "given": "David"
+      },
+      {
+        "family": "Huang",
+        "given": "Aja"
+      },
+      {
+        "family": "Maddison",
+        "given": "Chris J."
+      },
+      {
+        "family": "Guez",
+        "given": "Arthur"
+      },
+      {
+        "family": "Sifre",
+        "given": "Laurent"
+      },
+      {
+        "family": "van den Driessche",
+        "given": "George"
+      },
+      {
+        "family": "Schrittwieser",
+        "given": "Julian"
+      },
+      {
+        "family": "Antonoglou",
+        "given": "Ioannis"
+      },
+      {
+        "family": "Panneershelvam",
+        "given": "Veda"
+      },
+      {
+        "family": "Lanctot",
+        "given": "Marc"
+      },
+      {
+        "family": "Dieleman",
+        "given": "Sander"
+      },
+      {
+        "family": "Grewe",
+        "given": "Dominik"
+      },
+      {
+        "family": "Nham",
+        "given": "John"
+      },
+      {
+        "family": "Kalchbrenner",
+        "given": "Nal"
+      },
+      {
+        "family": "Sutskever",
+        "given": "Ilya"
+      },
+      {
+        "family": "Lillicrap",
+        "given": "Timothy"
+      },
+      {
+        "family": "Leach",
+        "given": "Madeleine"
+      },
+      {
+        "family": "Kavukcuoglu",
+        "given": "Koray"
+      },
+      {
+        "family": "Graepel",
+        "given": "Thore"
+      },
+      {
+        "family": "Hassabis",
+        "given": "Demis"
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          2016,
+          1,
+          27
+        ]
+      ]
+    },
+    "container-title": "Nature",
+    "volume": "529",
+    "issue": "7587",
+    "page": "484-489",
+    "DOI": "10.1038/nature16961",
+    "URL": "https://doi.org/10.1038/nature16961",
+    "abstract": "",
+    "citationCount": 11954,
+    "collections": [
+      "learning"
+    ],
+    "tags": [
+      "Machine learning",
+      "Neural networks"
+    ],
+    "starred": false,
+    "status": "unread",
+    "source": "Crossref · demo library",
+    "addedAt": "2026-10-09T11:40:28.768Z",
+    "notes": "",
+    "method": "",
+    "evidence": "",
+    "limitations": "",
+    "attachments": [],
+    "annotations": [],
+    "demo": true
+  },
+  {
+    "id": "demo-6",
+    "type": "article-journal",
+    "title": "Highly accurate protein structure prediction with AlphaFold",
+    "author": [
+      {
+        "family": "Jumper",
+        "given": "John"
+      },
+      {
+        "family": "Evans",
+        "given": "Richard"
+      },
+      {
+        "family": "Pritzel",
+        "given": "Alexander"
+      },
+      {
+        "family": "Green",
+        "given": "Tim"
+      },
+      {
+        "family": "Figurnov",
+        "given": "Michael"
+      },
+      {
+        "family": "Ronneberger",
+        "given": "Olaf"
+      },
+      {
+        "family": "Tunyasuvunakool",
+        "given": "Kathryn"
+      },
+      {
+        "family": "Bates",
+        "given": "Russ"
+      },
+      {
+        "family": "Žídek",
+        "given": "Augustin"
+      },
+      {
+        "family": "Potapenko",
+        "given": "Anna"
+      },
+      {
+        "family": "Bridgland",
+        "given": "Alex"
+      },
+      {
+        "family": "Meyer",
+        "given": "Clemens"
+      },
+      {
+        "family": "Kohl",
+        "given": "Simon A. A."
+      },
+      {
+        "family": "Ballard",
+        "given": "Andrew J."
+      },
+      {
+        "family": "Cowie",
+        "given": "Andrew"
+      },
+      {
+        "family": "Romera-Paredes",
+        "given": "Bernardino"
+      },
+      {
+        "family": "Nikolov",
+        "given": "Stanislav"
+      },
+      {
+        "family": "Jain",
+        "given": "Rishub"
+      },
+      {
+        "family": "Adler",
+        "given": "Jonas"
+      },
+      {
+        "family": "Back",
+        "given": "Trevor"
+      },
+      {
+        "family": "Petersen",
+        "given": "Stig"
+      },
+      {
+        "family": "Reiman",
+        "given": "David"
+      },
+      {
+        "family": "Clancy",
+        "given": "Ellen"
+      },
+      {
+        "family": "Zielinski",
+        "given": "Michal"
+      },
+      {
+        "family": "Steinegger",
+        "given": "Martin"
+      },
+      {
+        "family": "Pacholska",
+        "given": "Michalina"
+      },
+      {
+        "family": "Berghammer",
+        "given": "Tamas"
+      },
+      {
+        "family": "Bodenstein",
+        "given": "Sebastian"
+      },
+      {
+        "family": "Silver",
+        "given": "David"
+      },
+      {
+        "family": "Vinyals",
+        "given": "Oriol"
+      },
+      {
+        "family": "Senior",
+        "given": "Andrew W."
+      },
+      {
+        "family": "Kavukcuoglu",
+        "given": "Koray"
+      },
+      {
+        "family": "Kohli",
+        "given": "Pushmeet"
+      },
+      {
+        "family": "Hassabis",
+        "given": "Demis"
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          2021,
+          7,
+          15
+        ]
+      ]
+    },
+    "container-title": "Nature",
+    "volume": "596",
+    "issue": "7873",
+    "page": "583-589",
+    "DOI": "10.1038/s41586-021-03819-2",
+    "URL": "https://doi.org/10.1038/s41586-021-03819-2",
+    "abstract": "Abstract Proteins are essential to life, and understanding their structure can facilitate a mechanistic understanding of their function. Through an enormous experimental effort 1–4 , the structures of around 100,000 unique proteins have been determined 5 , but this represents a small fraction of the billions of known protein sequences 6,7 . Structural coverage is bottlenecked by the months to years of painstaking effort required to determine a single protein structure. Accurate computational approaches are needed to address this gap and to enable large-scale structural bioinformatics. Predicting the three-dimensional structure that a protein will adopt based solely on its amino acid sequence—the structure prediction component of the ‘protein folding problem’ 8 —has been an important open research problem for more than 50 years 9 . Despite recent progress 10–14 , existing methods fall far short of atomic accuracy, especially when no homologous structure is available. Here we provide the first computational method that can regularly predict protein structures with atomic accuracy even in cases in which no similar structure is known. We validated an entirely redesigned version of our neural network-based model, AlphaFold, in the challenging 14th Critical Assessment of protein Structure Prediction (CASP14) 15 , demonstrating accuracy competitive with experimental structures in a majority of cases and greatly outperforming other methods. Underpinning the latest version of AlphaFold is a novel machine learning approach that incorporates physical and biological knowledge about protein structure, leveraging multi-sequence alignments, into the design of the deep learning algorithm.",
+    "citationCount": 46167,
+    "collections": [
+      "learning"
+    ],
+    "tags": [
+      "Machine learning",
+      "Structure prediction"
+    ],
+    "starred": false,
+    "status": "reading",
+    "source": "Crossref · demo library",
+    "addedAt": "2026-10-09T11:30:29.049Z",
+    "notes": "",
+    "method": "",
+    "evidence": "",
+    "limitations": "",
+    "attachments": [],
+    "annotations": [],
+    "demo": true
+  },
+  {
+    "id": "demo-7",
+    "type": "article-journal",
+    "title": "Preferred Reporting Items for Systematic Reviews and Meta-Analyses: The PRISMA Statement",
+    "author": [
+      {
+        "family": "Moher",
+        "given": "David"
+      },
+      {
+        "family": "Liberati",
+        "given": "Alessandro"
+      },
+      {
+        "family": "Tetzlaff",
+        "given": "Jennifer"
+      },
+      {
+        "family": "Altman",
+        "given": "Douglas G."
+      },
+      {
+        "family": "",
+        "given": ""
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          2009,
+          7,
+          21
+        ]
+      ]
+    },
+    "container-title": "PLoS Medicine",
+    "volume": "6",
+    "issue": "7",
+    "page": "e1000097",
+    "DOI": "10.1371/journal.pmed.1000097",
+    "URL": "https://doi.org/10.1371/journal.pmed.1000097",
+    "abstract": "",
+    "citationCount": 59592,
+    "collections": [
+      "methods"
+    ],
+    "tags": [
+      "Systematic reviews",
+      "Research methods"
+    ],
+    "starred": false,
+    "status": "read",
+    "source": "Crossref · demo library",
+    "addedAt": "2026-10-09T11:20:29.337Z",
+    "notes": "",
+    "method": "",
+    "evidence": "",
+    "limitations": "",
+    "attachments": [],
+    "annotations": [],
+    "demo": true
+  },
+  {
+    "id": "demo-8",
+    "type": "article-journal",
+    "title": "The PRISMA 2020 statement: an updated guideline for reporting systematic reviews",
+    "author": [
+      {
+        "family": "Page",
+        "given": "Matthew J"
+      },
+      {
+        "family": "McKenzie",
+        "given": "Joanne E"
+      },
+      {
+        "family": "Bossuyt",
+        "given": "Patrick M"
+      },
+      {
+        "family": "Boutron",
+        "given": "Isabelle"
+      },
+      {
+        "family": "Hoffmann",
+        "given": "Tammy C"
+      },
+      {
+        "family": "Mulrow",
+        "given": "Cynthia D"
+      },
+      {
+        "family": "Shamseer",
+        "given": "Larissa"
+      },
+      {
+        "family": "Tetzlaff",
+        "given": "Jennifer M"
+      },
+      {
+        "family": "Akl",
+        "given": "Elie A"
+      },
+      {
+        "family": "Brennan",
+        "given": "Sue E"
+      },
+      {
+        "family": "Chou",
+        "given": "Roger"
+      },
+      {
+        "family": "Glanville",
+        "given": "Julie"
+      },
+      {
+        "family": "Grimshaw",
+        "given": "Jeremy M"
+      },
+      {
+        "family": "Hróbjartsson",
+        "given": "Asbjørn"
+      },
+      {
+        "family": "Lalu",
+        "given": "Manoj M"
+      },
+      {
+        "family": "Li",
+        "given": "Tianjing"
+      },
+      {
+        "family": "Loder",
+        "given": "Elizabeth W"
+      },
+      {
+        "family": "Mayo-Wilson",
+        "given": "Evan"
+      },
+      {
+        "family": "McDonald",
+        "given": "Steve"
+      },
+      {
+        "family": "McGuinness",
+        "given": "Luke A"
+      },
+      {
+        "family": "Stewart",
+        "given": "Lesley A"
+      },
+      {
+        "family": "Thomas",
+        "given": "James"
+      },
+      {
+        "family": "Tricco",
+        "given": "Andrea C"
+      },
+      {
+        "family": "Welch",
+        "given": "Vivian A"
+      },
+      {
+        "family": "Whiting",
+        "given": "Penny"
+      },
+      {
+        "family": "Moher",
+        "given": "David"
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          2021,
+          3,
+          29
+        ]
+      ]
+    },
+    "container-title": "BMJ",
+    "volume": "",
+    "issue": "",
+    "page": "n71",
+    "DOI": "10.1136/bmj.n71",
+    "URL": "https://doi.org/10.1136/bmj.n71",
+    "abstract": "",
+    "citationCount": 93527,
+    "collections": [
+      "methods"
+    ],
+    "tags": [
+      "Systematic reviews",
+      "Research methods"
+    ],
+    "starred": false,
+    "status": "unread",
+    "source": "Crossref · demo library",
+    "addedAt": "2026-10-09T11:10:29.633Z",
+    "notes": "",
+    "method": "",
+    "evidence": "",
+    "limitations": "",
+    "attachments": [],
+    "annotations": [],
+    "demo": true
+  },
+  {
+    "id": "demo-9",
+    "type": "paper-conference",
+    "title": "Deep Residual Learning for Image Recognition",
+    "author": [
+      {
+        "family": "He",
+        "given": "Kaiming"
+      },
+      {
+        "family": "Zhang",
+        "given": "Xiangyu"
+      },
+      {
+        "family": "Ren",
+        "given": "Shaoqing"
+      },
+      {
+        "family": "Sun",
+        "given": "Jian"
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          2016,
+          6
+        ]
+      ]
+    },
+    "container-title": "2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)",
+    "volume": "",
+    "issue": "",
+    "page": "770-778",
+    "DOI": "10.1109/cvpr.2016.90",
+    "URL": "https://doi.org/10.1109/cvpr.2016.90",
+    "abstract": "",
+    "citationCount": 177222,
+    "collections": [
+      "learning"
+    ],
+    "tags": [
+      "Machine learning",
+      "Neural networks"
+    ],
+    "starred": false,
+    "status": "unread",
+    "source": "Crossref · demo library",
+    "addedAt": "2026-10-09T11:00:29.919Z",
+    "notes": "",
+    "method": "",
+    "evidence": "",
+    "limitations": "",
+    "attachments": [],
+    "annotations": [],
+    "demo": true
+  },
+  {
+    "id": "demo-10",
+    "type": "article-journal",
+    "title": "Porous materials with optimal adsorption thermodynamics and kinetics for CO2 separation",
+    "author": [
+      {
+        "family": "Nugent",
+        "given": "Patrick"
+      },
+      {
+        "family": "Belmabkhout",
+        "given": "Youssef"
+      },
+      {
+        "family": "Burd",
+        "given": "Stephen D."
+      },
+      {
+        "family": "Cairns",
+        "given": "Amy J."
+      },
+      {
+        "family": "Luebke",
+        "given": "Ryan"
+      },
+      {
+        "family": "Forrest",
+        "given": "Katherine"
+      },
+      {
+        "family": "Pham",
+        "given": "Tony"
+      },
+      {
+        "family": "Ma",
+        "given": "Shengqian"
+      },
+      {
+        "family": "Space",
+        "given": "Brian"
+      },
+      {
+        "family": "Wojtas",
+        "given": "Lukasz"
+      },
+      {
+        "family": "Eddaoudi",
+        "given": "Mohamed"
+      },
+      {
+        "family": "Zaworotko",
+        "given": "Michael J."
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          2013,
+          2,
+          27
+        ]
+      ]
+    },
+    "container-title": "Nature",
+    "volume": "495",
+    "issue": "7439",
+    "page": "80-84",
+    "DOI": "10.1038/nature11893",
+    "URL": "https://doi.org/10.1038/nature11893",
+    "abstract": "",
+    "citationCount": 2351,
+    "collections": [
+      "porous"
+    ],
+    "tags": [
+      "Metal–organic frameworks",
+      "Gas storage"
+    ],
+    "starred": false,
+    "status": "unread",
+    "source": "Crossref · demo library",
+    "addedAt": "2026-10-09T10:50:30.232Z",
+    "notes": "",
+    "method": "",
+    "evidence": "",
+    "limitations": "",
+    "attachments": [],
+    "annotations": [],
+    "demo": true
+  }
+]

@@ -1,0 +1,29 @@
+REGEDIT4
+
+[HKEY_CLASSES_ROOT\Citograph.Word]
+@="Citograph.Word.Addin"
+
+[HKEY_CLASSES_ROOT\Citograph.Word\CLSID]
+@="{B2C1FAE2-9F7B-4DB6-AAC2-AB6465C872F9}"
+
+[HKEY_CLASSES_ROOT\CLSID\{B2C1FAE2-9F7B-4DB6-AAC2-AB6465C872F9}]
+@="Citograph.Word.Addin"
+
+[HKEY_CLASSES_ROOT\CLSID\{B2C1FAE2-9F7B-4DB6-AAC2-AB6465C872F9}\InprocServer32]
+@="mscoree.dll"
+"ThreadingModel"="Both"
+"Class"="Citograph.Word.Addin"
+"Assembly"="Citograph.Word, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null"
+"RuntimeVersion"="v4.0.30319"
+"CodeBase"="file:///D:/Ecosystem/Projects/NOT_AI/CItograph/word-addin/bin/Citograph.Word.dll"
+
+[HKEY_CLASSES_ROOT\CLSID\{B2C1FAE2-9F7B-4DB6-AAC2-AB6465C872F9}\InprocServer32\1.1.0.0]
+"Class"="Citograph.Word.Addin"
+"Assembly"="Citograph.Word, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null"
+"RuntimeVersion"="v4.0.30319"
+"CodeBase"="file:///D:/Ecosystem/Projects/NOT_AI/CItograph/word-addin/bin/Citograph.Word.dll"
+
+[HKEY_CLASSES_ROOT\CLSID\{B2C1FAE2-9F7B-4DB6-AAC2-AB6465C872F9}\ProgId]
+@="Citograph.Word"
+
+[HKEY_CLASSES_ROOT\CLSID\{B2C1FAE2-9F7B-4DB6-AAC2-AB6465C872F9}\Implemented Categories\{62C8FE65-4EBB-45E7-B440-6E39B2CDBF29}]
