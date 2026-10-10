@@ -1,0 +1,84 @@
+/* Readable typography scales through rem values, independently of PDF contents. */
+body{line-height:1.5}
+.app{min-height:0}
+.sidebar{width:15rem;min-width:15rem;padding:24px 17px 0}
+.brand{flex-shrink:0;margin-bottom:22px}
+.brand small{font-size:.625rem;letter-spacing:1.3px}
+.sidebar>.library-files{flex-shrink:0}
+.sidebar-navigation{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:thin;scrollbar-color:#606177 transparent;padding-bottom:14px}
+.sidebar nav>button{font-size:.9375rem;min-height:42px;line-height:1.45}
+.sidebar-bottom{flex-shrink:0;padding:8px 0;margin:0 3px}
+.sidebar-bottom>button{font-size:.875rem;min-height:36px}
+.local-status{flex-shrink:0;padding-top:12px;padding-bottom:12px;font-size:.75rem;gap:6px}
+.library-files .workspace-switch strong{font-size:.875rem;max-width:10rem}
+.library-files .workspace-switch small{font-size:.75rem;white-space:normal;line-height:1.4}
+.sidebar-label{font-size:.6875rem;letter-spacing:1.3px;color:#9c9fb5}
+.sidebar nav button>small{color:#a3a6bb}
+.sidebar .workspace-switch{margin-bottom:20px}
+.brand>span{font-size:1.5rem}
+.inspector,.with-inspector .inspector{width:22rem;min-width:22rem}
+.inspector .abstract{font-size:1rem;line-height:1.75;color:var(--text)}
+.metadata{font-size:.875rem;grid-template-columns:6.25rem minmax(0,1fr);gap:13px 12px}
+.metadata dt,.metadata dd,.metadata details>summary{color:var(--text)}
+.metadata dt{opacity:.8}
+.inspector .muted{font-size:.8125rem}
+.inspector-tabs{gap:20px}
+.inspector-tabs button{font-size:.875rem;line-height:1.5}
+.inspector-title h2{font-size:1.375rem;line-height:1.45;letter-spacing:-.45px}
+.reference-summary h3{font-size:1rem;line-height:1.5}
+.reference-summary p{font-size:.875rem;line-height:1.6;color:var(--muted)}
+.reference-summary>div:last-child{min-width:0}
+.reference-row{min-height:124px;padding-top:18px;padding-bottom:18px}
+.row-tags{flex-wrap:wrap;overflow:visible}
+.row-tags>span{max-width:none;font-size:.75rem;line-height:1.5}
+.reference-year,.status{font-size:.8125rem}
+.reference-row>input,input[type=checkbox]{width:16px;height:16px}
+.library-stats{flex-wrap:wrap;gap:18px}
+.library-stats-tip{white-space:normal}
+.references-header,.section-heading{flex-wrap:wrap}
+.references-header>div{flex-wrap:wrap;justify-content:flex-end}
+.references-header select{max-width:none!important;font-size:.8125rem;min-height:36px}
+.demo-banner,.list-footer{flex-wrap:wrap;gap:10px}
+.section-heading p{font-size:.9375rem}
+.breadcrumb{font-size:.8125rem}
+.top-search input{font-size:.875rem}
+.titlebar{gap:16px;padding-left:24px;padding-right:24px;min-height:72px}
+.settings-columns{grid-template-columns:repeat(auto-fit,minmax(min(100%,25rem),1fr))}
+.settings-action{min-width:0;white-space:normal}
+.settings-action span{min-width:0}
+.text-size-setting{margin:18px 0 25px}
+.text-size-preview{margin-top:14px;padding:16px 18px;border-radius:10px;border:1px solid var(--line);background:var(--soft);font-size:1rem;line-height:1.7}
+.text-size-preview strong{display:block;font-weight:650;margin-bottom:5px}
+.text-size-preview p{color:var(--muted)}
+.text-size-shortcuts{font-size:.8125rem;color:var(--muted);line-height:1.8;margin-top:12px}
+.text-size-shortcuts kbd{white-space:nowrap}
+.modal{width:32rem;max-width:calc(100vw - 32px)}
+.modal.wide{width:44rem}
+.field input,.field textarea,.field select{font-size:.9375rem;line-height:1.5}
+.primary,.secondary{font-size:.875rem;min-height:40px}
+.abstract-toggle{font-size:.875rem}
+.about-citograph{flex-wrap:wrap;gap:16px}
+@media(min-width:1700px){.sidebar{width:16rem;min-width:16rem}.inspector,.with-inspector .inspector{width:24rem;min-width:24rem}}
+@media(max-width:1250px){
+ .sidebar{width:13.5rem;min-width:13.5rem;padding-left:12px;padding-right:12px}
+ .sidebar nav>button{font-size:.875rem;gap:9px;padding-left:10px}
+ .brand>span{font-size:1.25rem}
+ .brand small{font-size:.5625rem;letter-spacing:.8px}
+ .inspector,.with-inspector .inspector{width:18rem;min-width:18rem}
+ .library-view,.page-view{padding-left:22px;padding-right:22px}
+ .titlebar{padding-left:18px;padding-right:18px;gap:12px}
+ .top-search{max-width:240px}
+ .breadcrumb{min-width:0;white-space:normal;line-height:1.4}
+ .breadcrumb>span:first-child{max-width:115px}
+ .top-actions{gap:10px}
+ .library-stats>div>span:last-child{font-size:.8125rem}
+}
+@media(max-width:1120px){
+ .with-inspector .list-labels,.with-inspector .reference-row{grid-template-columns:16px minmax(0,1fr) 25px;gap:12px}
+ .with-inspector .reference-year,.with-inspector .reference-row>.status,.with-inspector .list-labels>span:nth-of-type(2),.with-inspector .list-labels>span:nth-of-type(3){display:none}
+ .with-inspector .reference-summary{gap:10px}
+ .with-inspector .reference-summary .document-icon{display:none}
+ .with-inspector .library-stats{gap:12px}
+ .with-inspector .top-search{max-width:200px}
+ .section-heading>.primary{margin-top:0}
+}

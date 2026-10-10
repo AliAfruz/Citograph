@@ -5,7 +5,7 @@ using System.Reflection;
 [assembly: AssemblyDescription("Native citation, bibliography, and traveling library tools")]
 // Keep the COM assembly identity stable across compatible minor upgrades.
 [assembly: AssemblyVersion("1.1.0.0")]
-[assembly: AssemblyFileVersion("1.4.0.0")]
+[assembly: AssemblyFileVersion("1.4.1.0")]
 [assembly: ComVisible(false)]
 namespace Citograph.Word {
  [ComImport,Guid("B65AD801-ABAF-11D0-BB8B-00A0C90F2744"),InterfaceType(ComInterfaceType.InterfaceIsDual)]

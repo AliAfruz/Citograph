@@ -130,5 +130,5 @@ export function validateBackup(data) {
   return {...data,references:data.references.map(r=>normalizeReference(r))};
 }
 export function blankState() {
-  return {schemaVersion:1,references:[],collections:[],projects:[],settings:{theme:'light',style:'apa',name:'Researcher',showInspector:true},activity:[]};
+  return {schemaVersion:1,references:[],collections:[],projects:[],settings:{theme:'light',style:'apa',name:'Researcher',showInspector:true,textSize:18},activity:[]};
 }

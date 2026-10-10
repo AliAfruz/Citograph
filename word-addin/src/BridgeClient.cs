@@ -4,7 +4,14 @@ namespace Citograph.Word {
  internal class BridgeClient {
   public string descriptorOverride;
   private static string Root(){string directory=Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);string config=Path.Combine(directory,"Citograph-root.txt");return File.Exists(config)?Path.GetFullPath(File.ReadAllText(config).Trim()):Path.GetFullPath(Path.Combine(directory,"..",".."));}
-  private static string Executable(){string root=Root();string installed=Path.Combine(root,"Citograph.exe");string current=Path.Combine(root,"release","v1.4.0","win-unpacked","Citograph.exe");return File.Exists(installed)?installed:File.Exists(current)?current:Path.Combine(root,"release","win-unpacked","Citograph.exe");}
+  private static string Executable(){
+   string root=Root(),release=Path.Combine(root,"release"),fallback=Path.Combine(release,"win-unpacked","Citograph.exe");
+   var candidates=new System.Collections.Generic.List<string>{Path.Combine(root,"Citograph.exe"),fallback};
+   if(Directory.Exists(release))foreach(string directory in Directory.GetDirectories(release,"v*"))candidates.Add(Path.Combine(directory,"win-unpacked","Citograph.exe"));
+   string selected=fallback;Version newest=new Version(0,0);
+   foreach(string file in candidates){if(!File.Exists(file))continue;Version version;if(Version.TryParse(FileVersionInfo.GetVersionInfo(file).ProductVersion,out version)&&version>newest){newest=version;selected=file;}}
+   return selected;
+  }
   public string DescriptorPath {get {return descriptorOverride??Environment.GetEnvironmentVariable("CITOGRAPH_BRIDGE_FILE")??Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),"Citograph","word-bridge.json");}}
   private BridgeDescriptor Descriptor(){if(!File.Exists(DescriptorPath))throw new IOException("Citograph is not running.");var d=Data.Parse<BridgeDescriptor>(File.ReadAllText(DescriptorPath));if(d.protocol!=1||d.port<1||d.port>65535||string.IsNullOrEmpty(d.token)||d.token.Length!=64)throw new IOException("Invalid Citograph bridge descriptor.");return d;}
   private string Request(string endpoint,object body){var d=Descriptor();using(var client=new TimedClient()){client.Encoding=Encoding.UTF8;client.Headers[HttpRequestHeader.Authorization]="Bearer "+d.token;client.Headers[HttpRequestHeader.ContentType]="application/json";try{return body==null?client.DownloadString("http://127.0.0.1:"+d.port+endpoint):client.UploadString("http://127.0.0.1:"+d.port+endpoint,"POST",Data.Serialize(body));}catch(WebException e){if(e.Response!=null){using(var reader=new StreamReader(e.Response.GetResponseStream())){string detail=reader.ReadToEnd();try{var error=Data.Parse<System.Collections.Generic.Dictionary<string,object>>(detail);throw new InvalidOperationException(Data.Text(error,"error"));}catch(ArgumentException){}}}throw new InvalidOperationException("Citograph could not be reached. Open or restart Citograph 1.4 and retry.",e);}}}
