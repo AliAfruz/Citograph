@@ -3,7 +3,7 @@ const fs=require('node:fs');const path=require('node:path');const crypto=require
 const {LibraryManager}=require('./library-manager.cjs');const {validateState}=require('./database.cjs');
 const {startWordBridge}=require('./word-bridge.cjs');
 const {compile,runtime}=require('./style-compiler.cjs');
-const {wordStyle}=require('./word-style.cjs');
+const {wordStyle,wordMigration}=require('./word-style.cjs');
 let win,store,libraries,wordBridge,allowClose=false,pendingWordStyles=0;const pendingWordImports=new Map();
 if(process.env.CITOGRAPH_DATA_DIR){fs.mkdirSync(process.env.CITOGRAPH_DATA_DIR,{recursive:true});app.setPath('userData',process.env.CITOGRAPH_DATA_DIR);}
 if(!app.requestSingleInstanceLock()){app.quit();} else {
@@ -27,6 +27,9 @@ if(!app.requestSingleInstanceLock()){app.quit();} else {
     secureHandle('style:compile',request=>compile(request,path.join(deliveryRoot,'python')));
     secureHandle('style:pick-python',async()=>{const result=await dialog.showOpenDialog(win,{title:'Choose Python 3.11 or later',properties:['openFile'],filters:[{name:'Python interpreter',extensions:['exe']}]});return result.canceled?null:result.filePaths[0];});
     secureHandle('style:word-target',()=>wordStyle('inspect',{root:deliveryRoot,descriptor:path.join(app.getPath('userData'),'word-bridge.json')}));
+    secureHandle('word:migration-windows',()=>wordMigration('windows',{root:deliveryRoot,descriptor:path.join(app.getPath('userData'),'word-bridge.json')}));
+    secureHandle('word:migration-inspect',target=>wordMigration('migration-inspect',{root:deliveryRoot,descriptor:path.join(app.getPath('userData'),'word-bridge.json'),target}));
+    secureHandle('word:migrate',async(styleId,target,session)=>{libraries.assertSession(session);if(!target||! /^[a-f0-9]{64}$/.test(target.token)||!Number.isInteger(target.window)||typeof target.name!=='string')throw new Error('Inspect the Word document first.');if(!store.load()?.state.settings.customStyles?.some(s=>s.id===styleId)&&!['apa','ieee','nature','nlm-citation-sequence','chicago-author-date','modern-language-association','american-chemical-society','harvard-cite-them-right'].includes(styleId))throw new Error('Choose a saved citation style.');const result=await dialog.showSaveDialog(win,{title:'Create a migrated Citograph copy',defaultPath:path.basename(target.name,'.docx')+'-Citograph.docx',filters:[{name:'Word document',extensions:['docx']}]});if(result.canceled)return null;libraries.assertSession(session);let output=result.filePath;if(!/\.docx$/i.test(output))output+='.docx';pendingWordStyles++;try{return await wordMigration('migrate',{root:deliveryRoot,descriptor:path.join(app.getPath('userData'),'word-bridge.json'),styleId,target,output});}finally{pendingWordStyles--;}});
     secureHandle('style:word-apply',async(styleId,target,session)=>{libraries.assertSession(session);if(!store.load()?.state.settings.customStyles?.some(s=>s.id===styleId)&&!['apa','ieee','nature','nlm-citation-sequence','chicago-author-date','modern-language-association','american-chemical-society','harvard-cite-them-right'].includes(styleId))throw new Error('Save the style before applying it.');pendingWordStyles++;try{return await wordStyle('apply',{root:deliveryRoot,descriptor:path.join(app.getPath('userData'),'word-bridge.json'),styleId,target});}finally{pendingWordStyles--;}});
     secureHandle('word:import-response',(id,result)=>{const pending=pendingWordImports.get(id);if(pending){clearTimeout(pending.timer);pendingWordImports.delete(id);result.error?pending.reject(new Error(result.error)):pending.resolve(result);}});
     secureHandle('file:attach',async(session)=>{libraries.assertSession(session);

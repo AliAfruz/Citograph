@@ -1,4 +1,4 @@
-﻿param([string]$ResultFolder,[string]$BridgeFile,[string]$StyleHostRoot)
+param([string]$ResultFolder,[string]$BridgeFile,[string]$StyleHostRoot)
 $ErrorActionPreference='Stop'
 Add-Type -TypeDefinition 'using System;using System.Runtime.InteropServices;public static class WordTestPid{[DllImport("user32.dll")]public static extern uint GetWindowThreadProcessId(IntPtr h,out uint id);}'
 Add-Type -ReferencedAssemblies 'Microsoft.CSharp','System.Core' -TypeDefinition 'public static class WordTestIO{public static void Save(object d,string f){dynamic doc=d;doc.SaveAs2(f,16);}public static object Open(object a,string f){dynamic app=a;return app.Documents.Open(f);}public static object Footnote(object d){dynamic doc=d;int p=doc.Paragraphs[2].Range.Start;return doc.Footnotes.Add(doc.Range(p,p),System.Type.Missing,"A footnote source. ");}}'
@@ -16,13 +16,13 @@ try{
  $owned=$true;$word.Visible=$false;$word.DisplayAlerts=0
  [IO.File]::WriteAllText((Join-Path $ResultFolder 'word-test-process.json'),('{"wordPid":'+$taskWordPid+',"powershellPid":'+$PID+'}'))
  $word.COMAddIns.Update()
- try{$com=$word.COMAddIns.Item('Citograph.WordAddin');$com.Connect=$true;$addin=$com.Object;if($addin.Version() -ne '1.2.0'){throw 'Word loaded an earlier Citograph build.'};$nativeHost=$true}catch{
+ try{$com=$word.COMAddIns.Item('Citograph.WordAddin');$com.Connect=$true;$addin=$com.Object;if($addin.Version() -ne '1.4.0'){throw 'Word loaded an earlier Citograph build.'};$nativeHost=$true}catch{
   Add-Type -TypeDefinition 'public class CitographTestHost{public object Object{get;set;}}'
-  $addin=New-Object -ComObject Citograph.WordAddin;$hostObject=New-Object CitographTestHost;$custom=[Array]@()
+  if(-not $StyleHostRoot){$StyleHostRoot=Split-Path -Parent $PSScriptRoot};Add-Type -Path (Join-Path $StyleHostRoot 'word-addin\bin\Citograph.Word.dll');$addin=New-Object Citograph.Word.Addin;$hostObject=New-Object CitographTestHost;$custom=[Array]@()
   $addin.OnConnection($word,1,$hostObject,[ref]$custom)
-  Write-Host 'Word loaded an earlier ribbon build; testing the current registered document engine directly.'
+  Write-Host 'Word loaded an earlier ribbon build; testing the current document engine directly.'
  }
- $addin.UseBridgeDescriptor($BridgeFile);Write-Host ('Native object version: '+$addin.Version());Check ($addin.Version() -eq '1.2.0') 'Unexpected version.'
+ $addin.UseBridgeDescriptor($BridgeFile);Write-Host ('Native object version: '+$addin.Version());Check ($addin.Version() -eq '1.4.0') 'Unexpected version.'
  if($nativeHost){Pass 'native COM add-in loads in isolated Word'}else{Pass 'registered COM engine connects to isolated Word'}
  $doc.Content.Text="Citograph Word integration`rResearch connects ideas with evidence. `rA second perspective adds context. `r"
  $doc.Paragraphs.Item(2).Range.Select();$word.Selection.Collapse(0);$word.Selection.MoveLeft(1,1)|Out-Null

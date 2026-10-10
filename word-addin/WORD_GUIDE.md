@@ -58,3 +58,7 @@ node scripts/word-smoke.mjs
 ```
 
 The Word checks use a separate Word process and isolated Citograph library. Reports distinguish native ribbon-host loading from direct COM document-engine tests when an existing Office session retains an earlier add-in list. The checks create only disposable validation documents under `test-results`.
+
+## Migrate an EndNote document (1.4)
+
+Use **Migrate EndNote** to preview embedded EndNote references, choose a Citograph style and save a new Word copy. Sources are imported into the active desktop library, and Citograph fields replace the EndNote fields. The original remains available. The desktop equivalent is **Settings → EndNote document migration**. See **ENDNOTE_MIGRATION_GUIDE.md** for supported formats and review requirements.

@@ -9,4 +9,11 @@ async function wordStyle(command,{descriptor,root,styleId,target}){
  if(r.code!==0)throw new Error(r.stderr.trim()||'Word could not apply the style.');
  return JSON.parse(r.stdout);
 }
-module.exports={wordStyle};
+async function wordMigration(command,{descriptor,root,styleId,target,output}){
+ if(!['windows','migration-inspect','migrate'].includes(command))throw new Error('Invalid Word migration command.');
+ const handle=target?.window;if(handle!==undefined&&(!Number.isInteger(handle)||handle<=0||handle>4294967295))throw new Error('Invalid Word window.');
+ if(command==='migrate'&&(!/^[a-zA-Z0-9-]+$/.test(styleId)||! /^[a-f0-9]{64}$/.test(target?.token)||typeof output!=='string'||!path.isAbsolute(output)||!output.toLowerCase().endsWith('.docx')||handle===undefined))throw new Error('Invalid migration target.');
+ const args=[command,descriptor,...(command==='migrate'?[output,styleId,target.token]:[]),...(handle!==undefined?[String(handle)]:[])];
+ const r=await processResult(path.join(root,'word-addin/bin/Citograph.StyleHost.exe'),args,{},180000);if(r.code!==0)throw new Error(r.stderr.trim()||'Word migration could not finish.');return JSON.parse(r.stdout);
+}
+module.exports={wordStyle,wordMigration};

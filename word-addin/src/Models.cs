@@ -9,7 +9,7 @@ namespace Citograph.Word {
  public class FormatResponse {public Dictionary<string,string> citations;public string bibliography;public string styleXml;public string localeXml;public Dictionary<string,object> bibliographySettings;}
  public class FormatCluster {public string id;public List<CitationItem> items;public int noteIndex;}
  public class FormatRequest {public List<Dictionary<string,object>> references;public List<FormatCluster> clusters;public string style;public string styleXml;public string localeXml;}
- public class ImportResponse {public int added;public int skipped;}
+ public class ImportResponse {public int added;public int skipped;public Dictionary<string,string> idMap;}
  public class BridgeDescriptor {public int port;public string token;public int protocol;public string version;}
  internal static class Data {
   public static JavaScriptSerializer Json(){return new JavaScriptSerializer{MaxJsonLength=16000000,RecursionLimit=100};}

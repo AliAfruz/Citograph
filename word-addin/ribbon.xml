@@ -21,6 +21,7 @@
    <button id="OpenCitograph" label="Open Citograph" image="app" onAction="OpenClick"/>
   </group>
   <group id="ReviewGroup" label="Manuscript Tools">
+   <button id="MigrateEndNote" label="Migrate EndNote" size="large" image="import" onAction="MigrateEndNoteClick" supertip="Inspect embedded EndNote references, import sources and create a new Word copy with editable Citograph citations and bibliography."/>
    <button id="DocumentCheck" label="Document Check" size="large" image="check" onAction="AuditClick" supertip="Find missing source metadata, damaged citations, duplicate field IDs, and bibliography status."/>
    <button id="ConvertText" label="Convert to Plain Text" image="unlink" onAction="ConvertClick" supertip="Detach only Citograph citations and bibliography controls. Save a document copy first."/>
    <button id="Help" label="Help &amp; About" image="help" onAction="HelpClick"/>

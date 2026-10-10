@@ -8,9 +8,9 @@ A Windows desktop citation manager and research workspace. References are stored
 
 ## Open the app
 
-Double-click **Start Citograph.cmd**, or run **release/win-unpacked/Citograph.exe**. The packaged app does not require Node.js, Python, an account, or an internet connection for library work. Crossref search and DOI refresh require internet access.
+Double-click **Start Citograph.cmd**, or run **release/v1.4.0/win-unpacked/Citograph.exe**. The packaged app does not require Node.js, Python, an account, or an internet connection for library work. Crossref search and DOI refresh require internet access.
 
-If an installer is present, **release/Citograph Setup 1.3.1.exe** installs the app and creates a desktop shortcut. This locally built release is not code signed.
+If an installer is present, **release/Citograph Setup 1.4.0.exe** installs the app and creates a desktop shortcut. This locally built release is not code signed.
 
 The first launch contains an explicitly marked sample library of ten real papers with metadata retrieved from Crossref. Use **Remove samples** in Library to move those samples to Trash. Import your references or start adding your own at any time.
 
@@ -92,3 +92,7 @@ Click **Library files** in the sidebar to create, open, save or copy independent
 
 ## PubMed import and developer credit (1.3.1)
 PubMed .nbib records now import through the reference picker, the existing import dropzone or pasted text. Full names, Unicode, wrapped fields and PubMed identifiers are preserved. Settings and package metadata identify Ali Afruz (a.a.afruz@gmail.com) as developer. See [NBIB_IMPORT_GUIDE.md](NBIB_IMPORT_GUIDE.md). Download the installer from the private repository's Releases page.
+
+## EndNote document migration (1.4)
+
+Open **Settings → EndNote document migration** to inspect a saved Word document, recover its embedded EndNote references, and create a new copy with editable Citograph citations and bibliography. The **Migrate EndNote** Word ribbon button offers the same workflow. Originals are preserved; missing or unsupported fields are reported before conversion. See **ENDNOTE_MIGRATION_GUIDE.md**.

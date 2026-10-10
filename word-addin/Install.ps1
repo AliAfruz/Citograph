@@ -2,7 +2,7 @@ $ErrorActionPreference = 'Stop'
 $dll = Join-Path $PSScriptRoot 'bin\Citograph.Word.dll'
 if (-not (Test-Path -LiteralPath $dll)) { & (Join-Path $PSScriptRoot 'Build.ps1') }
 $assembly = [Reflection.AssemblyName]::GetAssemblyName($dll)
-$installFolder = Join-Path $env:LOCALAPPDATA ('Citograph\Word\' + $assembly.Version.ToString())
+$installFolder = Join-Path $env:LOCALAPPDATA ('Citograph\Word\' + [Diagnostics.FileVersionInfo]::GetVersionInfo($dll).FileVersion)
 New-Item -ItemType Directory -Path $installFolder -Force | Out-Null
 $installedDll = Join-Path $installFolder 'Citograph.Word.dll'
 Copy-Item -LiteralPath $dll -Destination $installedDll -Force
