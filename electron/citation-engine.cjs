@@ -1,4 +1,15 @@
+var __defProp = Object.defineProperty;
+var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
+var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __esm = (fn, res, err) => function __init() {
+  if (err) throw err[0];
+  try {
+    return fn && (res = (0, fn[__getOwnPropNames(fn)[0]])(fn = 0)), res;
+  } catch (e) {
+    throw err = [e], e;
+  }
+};
 var __commonJS = (cb, mod) => function __require() {
   try {
     return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
@@ -6,6 +17,19 @@ var __commonJS = (cb, mod) => function __require() {
     throw mod = 0, e;
   }
 };
+var __export = (target, all) => {
+  for (var name in all)
+    __defProp(target, name, { get: all[name], enumerable: true });
+};
+var __copyProps = (to, from, except, desc) => {
+  if (from && typeof from === "object" || typeof from === "function") {
+    for (let key of __getOwnPropNames(from))
+      if (!__hasOwnProp.call(to, key) && key !== except)
+        __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
+  }
+  return to;
+};
+var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
 // node_modules/citeproc/citeproc_commonjs.js
 var require_citeproc_commonjs = __commonJS({
@@ -18971,8 +18995,43 @@ var require_citeproc_commonjs = __commonJS({
   }
 });
 
+// src/citation-items.mjs
+var citation_items_exports = {};
+__export(citation_items_exports, {
+  uniqueCitationItems: () => uniqueCitationItems
+});
+function uniqueCitationItems(items) {
+  const seen = /* @__PURE__ */ new Set();
+  return items.filter((item) => {
+    const keyItem = { ...item, id: String(item.id) };
+    if (item.locator) {
+      keyItem.locator = String(item.locator);
+      keyItem.label = item.label || "page";
+    } else {
+      delete keyItem.locator;
+      delete keyItem.label;
+    }
+    for (const field of ["prefix", "suffix"]) {
+      if (item[field]) keyItem[field] = String(item[field]);
+      else delete keyItem[field];
+    }
+    delete keyItem.suppressAuthor;
+    if (item.suppressAuthor || item["suppress-author"]) keyItem["suppress-author"] = true;
+    else delete keyItem["suppress-author"];
+    const key = JSON.stringify(Object.keys(keyItem).sort().filter((field) => keyItem[field] !== void 0).map((field) => [field, keyItem[field]]));
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+var init_citation_items = __esm({
+  "src/citation-items.mjs"() {
+  }
+});
+
 // bridge/citations.cjs
 var CSL = require_citeproc_commonjs();
+var { uniqueCitationItems: uniqueCitationItems2 } = (init_citation_items(), __toCommonJS(citation_items_exports));
 function formatDocument(input, styleXML, localeXML) {
   const refs = Object.fromEntries(input.references.map((r) => [String(r.id), r]));
   const engine = new CSL.Engine({ retrieveLocale: () => localeXML, retrieveItem: (id) => {
@@ -18980,7 +19039,7 @@ function formatDocument(input, styleXML, localeXML) {
     return refs[id];
   } }, styleXML, "en-US");
   engine.setOutputFormat("html");
-  const citations = input.clusters.map((c, i) => ({ citationID: c.id, citationItems: c.items.map((item) => ({ id: String(item.id), ...item.locator ? { locator: String(item.locator), label: item.label || "page" } : {}, ...item.prefix ? { prefix: String(item.prefix) } : {}, ...item.suffix ? { suffix: String(item.suffix) } : {}, ...item.suppressAuthor ? { "suppress-author": true } : {} })), properties: { noteIndex: c.noteIndex || 0 } }));
+  const citations = input.clusters.map((c, i) => ({ citationID: c.id, citationItems: uniqueCitationItems2(c.items.map((item) => ({ id: String(item.id), ...item.locator ? { locator: String(item.locator), label: item.label || "page" } : {}, ...item.prefix ? { prefix: String(item.prefix) } : {}, ...item.suffix ? { suffix: String(item.suffix) } : {}, ...item.suppressAuthor ? { "suppress-author": true } : {} }))), properties: { noteIndex: c.noteIndex || 0 } }));
   const citationResults = engine.rebuildProcessorState(citations);
   const bibliography = citations.length ? engine.makeBibliography() : null;
   return { citations: Object.fromEntries(citationResults.map((c) => [c[0], c[2]])), bibliography: bibliography ? bibliography[1].join("") : "", bibliographySettings: bibliography ? bibliography[0] : {}, styleXml: styleXML, localeXml: localeXML };

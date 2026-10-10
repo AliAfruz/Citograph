@@ -1,3 +1,4 @@
+import {uniqueCitationItems} from './citation-items.mjs';
 import { Cite } from '@citation-js/core';
 import '@citation-js/plugin-bibtex';
 import '@citation-js/plugin-ris';
@@ -84,7 +85,7 @@ export function formatCitations(refs,styleXML,localeXML,clusters=null) {
   engine.setOutputFormat('html');
   engine.updateItems(Object.keys(records));
   const groups=clusters || refs.map(r=>[{id:String(r.id)}]);
-  const citations=groups.map(items=>engine.makeCitationCluster(items));
+  const citations=groups.map(items=>engine.makeCitationCluster(uniqueCitationItems(items)));
   const bib=engine.makeBibliography();
   return {bibliography:bib ? bib[1].join('') : '',entries:bib ? bib[1] : [],citations};
 }
@@ -93,7 +94,7 @@ export function formatManuscript(body,refs,styleXML,localeXML){
   const matches=[...body.matchAll(/\[\[cite:([^\]|]+)(?:\|([^\]]+))?\]\]/g)];
   const citedIds=[...new Set(matches.flatMap(m=>m[1].split(',')).filter(id=>byId[id]))];
   const engine=new CSL.Engine({retrieveLocale:()=>localeXML,retrieveItem:id=>cslData(byId[id])},styleXML,'en-US');engine.setOutputFormat('html');
-  const citations=matches.map((m,i)=>({citationID:'citation-'+i,citationItems:m[1].split(',').filter(id=>byId[id]).map(id=>({id,...(m[2]?{locator:m[2],label:'page'}:{})})),properties:{noteIndex:0}}));
+  const citations=matches.map((m,i)=>({citationID:'citation-'+i,citationItems:uniqueCitationItems(m[1].split(',').filter(id=>byId[id]).map(id=>({id,...(m[2]?{locator:m[2],label:'page'}:{})}))),properties:{noteIndex:0}}));
   const valid=citations.filter(c=>c.citationItems.length);
   const formatted=new Map(engine.rebuildProcessorState(valid).map(c=>[c[0],c[2]]));
   let index=0;

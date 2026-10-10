@@ -1,4 +1,4 @@
-# EndNote Word migration — Citograph 1.4.3
+# EndNote Word migration — Citograph 1.4.4
 
 Developed by **Ali Afruz** · **a.a.afruz@gmail.com**.
 
@@ -30,6 +30,10 @@ Missing embedded records can be resolved from another citation in the same docum
 The tool changes the citation structure and applies the selected CSL style; it does not reproduce the original `.ens` style automatically. Use Style Studio to select or prepare a matching style. Bibliographies are rebuilt from the document’s Citograph citations. PDFs and uncited library records are not embedded in EndNote’s Word traveling library and are not recovered by this tool.
 
 If the desktop library becomes unavailable after the converted document has been saved, its embedded Citograph sources remain available. Reopen the converted copy and use **Import to Citograph** to finish importing. The original document remains available.
+
+## Repeated citation numbers
+
+Migration and Update Citations remove identical repeated items within a citation group, for example `9,9,12,12` becomes `9,12`. Separate occurrences elsewhere in the document remain editable. Citations with different page locators, prefixes, suffixes or author-suppression options remain separate. Existing documents can be repaired with **Update Citations** without changing their saved style.
 
 ## Verification
 

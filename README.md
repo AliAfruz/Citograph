@@ -10,7 +10,7 @@ A Windows desktop citation manager and research workspace. References are stored
 
 Use the **Citograph** desktop shortcut, double-click **Start Citograph.cmd**, or run **release/win-unpacked/Citograph.exe**. The launcher selects the newest packaged version automatically; the main executable is version **1.4.3**. The packaged app does not require Node.js, Python, an account, or an internet connection for library work. Crossref search and DOI refresh require internet access.
 
-If an installer is present, **release/Citograph Setup 1.4.3.exe** installs the app and creates a desktop shortcut. This locally built release is not code signed.
+If an installer is present, **release/Citograph Setup 1.4.4.exe** installs the app and creates a desktop shortcut. This locally built release is not code signed.
 
 The first launch contains an explicitly marked sample library of ten real papers with metadata retrieved from Crossref. Use **Remove samples** in Library to move those samples to Trash. Import your references or start adding your own at any time.
 
@@ -66,7 +66,7 @@ The asset preparation scripts are needed only if rebuilding the bundled resource
 
 ## Current scope
 
-Citograph 1.4.3 is a local citation and research manager with a native Microsoft Word add-in for Windows. It includes real storage, citation processing, PDF annotation, and manuscript export. It does not include LibreOffice integration, collaboration/cloud sync, browser capture extension, OCR for scanned PDFs, automated scientific-quality assessment, or PDF full-text indexing across the library. Metadata completeness indicates the presence of fields, not the reliability of a publication. Citation output should be reviewed when imported metadata is incomplete.
+Citograph 1.4.4 is a local citation and research manager with a native Microsoft Word add-in for Windows. It includes real storage, citation processing, PDF annotation, and manuscript export. It does not include LibreOffice integration, collaboration/cloud sync, browser capture extension, OCR for scanned PDFs, automated scientific-quality assessment, or PDF full-text indexing across the library. Metadata completeness indicates the presence of fields, not the reliability of a publication. Citation output should be reviewed when imported metadata is incomplete.
 
 Research notes and evidence are authored by the user. No generated research findings or pretend AI responses are included. The research atlas shows metadata relationships, not a verified citation network.
 
@@ -108,3 +108,7 @@ Dragging a paper and releasing quickly no longer interrupts the workspace. Queue
 ## Smarter EndNote migration (1.4.3)
 
 Migration now supports saved .docx, .docm and legacy .doc documents. Macro-capable files use a new .docm copy to retain their VBA project. Hidden EndNote field data is decoded alongside citation-code XML; nested EN.CITE.DATA support fields are combined with their parent citation, and bibliography hyperlinks no longer block conversion. The preview shows a clear readiness status, recovered groups and remaining review items. The original document is preserved. See [ENDNOTE_MIGRATION_GUIDE.md](ENDNOTE_MIGRATION_GUIDE.md).
+
+## Repeated citation repair (1.4.4)
+
+Identical source entries within a citation group are combined before formatting. Different locators, prefixes, suffixes and author-suppression options are retained. Word's Update Citations repairs existing field payloads; EndNote migration also normalizes repeated items and refreshes citations after desktop ID mapping. Repeated citations at different places in a document retain their own fields.

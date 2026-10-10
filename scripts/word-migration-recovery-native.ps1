@@ -27,6 +27,8 @@ $word=$null;$doc=$null;$owned=$false;$checks=[Collections.Generic.List[string]]:
 function Check([bool]$ok,[string]$message){if(!$ok){throw $message};$checks.Add($message);Write-Host ('PASS '+$message)}
 function FileHash([string]$file){$stream=[IO.File]::Open($file,[IO.FileMode]::Open,[IO.FileAccess]::Read,[IO.FileShare]::ReadWrite);try{$hash=[Security.Cryptography.SHA256]::Create();try{[BitConverter]::ToString($hash.ComputeHash($stream))}finally{$hash.Dispose()}}finally{$stream.Dispose()}}
 function MacroHash([string]$file){$stream=[IO.File]::Open($file,[IO.FileMode]::Open,[IO.FileAccess]::Read,[IO.FileShare]::ReadWrite);$zip=[IO.Compression.ZipArchive]::new($stream,[IO.Compression.ZipArchiveMode]::Read);try{$entry=$zip.GetEntry('word/vbaProject.bin');if(!$entry){return ''};$part=$entry.Open();try{$hash=[Security.Cryptography.SHA256]::Create();try{[BitConverter]::ToString($hash.ComputeHash($part))}finally{$hash.Dispose()}}finally{$part.Dispose()}}finally{$zip.Dispose();$stream.Dispose()}}
+function Payload([object]$field){$encoded=[regex]::Match([string]$field.Code.Text,'CITOGRAPH/1\s+([A-Za-z0-9+/=]+)').Groups[1].Value;[Text.Encoding]::UTF8.GetString([Convert]::FromBase64String($encoded))|ConvertFrom-Json}
+function SetPayload([object]$field,[object]$payload){$json=$payload|ConvertTo-Json -Depth 30 -Compress;$field.Locked=$false;$field.Code.Text=' ADDIN CITOGRAPH/1 '+[Convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes($json))+' ';$field.Locked=$true}
 try{
  $word=New-Object -ComObject Word.Application
  if($word.Documents.Count -ne 0){throw 'An existing Word instance was returned; stopped to protect open documents.'}
@@ -38,6 +40,7 @@ try{
  $record='<record><rec-number>91</rec-number><ref-type name="Journal Article">17</ref-type><contributors><authors><author>Garcia, Ana</author></authors></contributors><titles><title>Hidden reference title</title><secondary-title>Synthetic Journal</secondary-title></titles><dates><year>2024</year></dates><electronic-resource-num>10.5555/recovery-a</electronic-resource-num></record>'
  $record2=$record.Replace('91','92').Replace('Hidden reference title','Second hidden reference').Replace('recovery-a','recovery-b')
  $xml='<EndNote><Cite><Author>Garcia</Author><Year>2024</Year><RecNum>91</RecNum><Pages>7</Pages>'+ $record +'</Cite><Cite><Author>Garcia</Author><Year>2024</Year><RecNum>92</RecNum>'+ $record2 +'</Cite></EndNote>'
+ $xml=$xml.Replace('</EndNote>',([regex]::Match($xml,'<Cite>.*?</Cite>').Value+'</EndNote>'))
  $p=$doc.Paragraphs.Item(2).Range.End-1;[RecoveryIO]::Stored($doc.Range($p,$p),$xml,'1, 2')
  $p=$doc.Content.End-1;$bib=[RecoveryIO]::AddField($doc.Range($p,$p),'EN.REFLIST');[RecoveryIO]::NestedLink($bib)
  $source=Join-Path $ResultFolder 'Hidden-EndNote-original.docm';[RecoveryIO]::Save($doc,$source,13);$sourceHash=FileHash $source
@@ -66,6 +69,17 @@ try{
  Check ($doc.Fields.Item(1).Code.Text -match 'CITOGRAPH/1' -and $doc.Fields.Item(1).Result.Text -match 'p. 7') 'Recovered citation keeps its page locator and editable Citograph field'
  $taskLibrary=$addin.GetTravelingLibrary()|ConvertFrom-Json;$taskLibrary|ConvertTo-Json -Depth 20|Set-Content -LiteralPath (Join-Path $ResultFolder 'converted-library.json') -Encoding UTF8
  Check (@($taskLibrary.references | Where-Object {$_.title -eq 'Hidden reference title'}).Count -eq 1) 'Recovered metadata survives the new traveling library'
+ $taskPayload=Payload $doc.Fields.Item(1)
+ Check ($taskPayload.items.Count -eq 2) 'Migration combines identical repeated source-and-options items'
+ $taskOriginalCode=$doc.Fields.Item(1).Code.Text
+ $taskPayload.items=@($taskPayload.items[0],$taskPayload.items[1],$taskPayload.items[1],$taskPayload.items[0]);SetPayload $doc.Fields.Item(1) $taskPayload
+ Check ((($addin.CheckDocument()|ConvertFrom-Json).issues -join ' ') -match 'repeated citation items') 'Document audit identifies repeated items in existing fields'
+ $addin.SetCitationStyle('american-chemical-society')
+ Check ((Payload $doc.Fields.Item(1)).items.Count -eq 2 -and $doc.Fields.Item(1).Result.Text -eq '1,2' -and $doc.Fields.Item(1).Result.Font.Superscript -eq -1) 'Update repairs repeated ACS numbers and persisted payloads with superscript formatting'
+ $doc.Fields.Item(1).Code.Text=$taskOriginalCode;$addin.SetCitationStyle('apa');$taskPayload=Payload $doc.Fields.Item(1)
+ $taskOtherPage=$taskPayload.items[0]|ConvertTo-Json -Depth 10|ConvertFrom-Json;$taskOtherPage.locator='12';$taskPayload.items=@($taskPayload.items[0],$taskOtherPage,$taskPayload.items[1]);SetPayload $doc.Fields.Item(1) $taskPayload;$null=$addin.UpdateDocument()
+ Check ((Payload $doc.Fields.Item(1)).items.Count -eq 3 -and $doc.Fields.Item(1).Result.Text -match '7' -and $doc.Fields.Item(1).Result.Text -match '12') 'Different page locators for the same source survive Word updates'
+ $doc.Fields.Item(1).Code.Text=$taskOriginalCode;$null=$addin.UpdateDocument();$doc.Save()
  $path=$doc.FullName;$doc.Close([ref]0);$doc=[RecoveryIO]::Open($word,$path);$addin.UseDocumentTarget($doc);$null=$addin.UpdateDocument()
  Check (($addin.CheckDocument()|ConvertFrom-Json).citations -eq 1) 'Converted DOCM reopens and updates successfully'
  if($Manuscript){
