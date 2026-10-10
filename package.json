@@ -1,6 +1,6 @@
 {
   "name": "citograph",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "A local-first research and citation workspace",
   "author": {
     "name": "Ali Afruz",
@@ -24,7 +24,8 @@
     "test:libraries": "node scripts/library-smoke.mjs",
     "test:nbib": "node scripts/nbib-smoke.mjs",
     "test:migration": "node scripts/word-migration-smoke.mjs",
-    "test:readability": "node scripts/readability-smoke.mjs"
+    "test:readability": "node scripts/readability-smoke.mjs",
+    "test:atlas": "node scripts/atlas-smoke.mjs"
   },
   "devDependencies": {
     "@citation-js/core": "0.9.0",
