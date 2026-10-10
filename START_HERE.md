@@ -2,9 +2,9 @@
 
 Your citation and research workspace is ready.
 
-**To open it:** use the **Citograph** desktop shortcut or double-click **Start Citograph.cmd** in this folder. The launcher selects the newest packaged build automatically. You can also open **release/win-unpacked/Citograph.exe** directly; this main location now contains version **1.4.2**.
+**To open it:** use the **Citograph** desktop shortcut or double-click **Start Citograph.cmd** in this folder. The launcher selects the newest packaged build automatically. You can also open **release/win-unpacked/Citograph.exe** directly; this main location now contains version **1.4.3**.
 
-**To install it:** run **release/Citograph Setup 1.4.2.exe**. Choose your installation folder; the installer can create a desktop shortcut.
+**To install it:** run **release/Citograph Setup 1.4.3.exe**. Choose your installation folder; the installer can create a desktop shortcut.
 
 Start with the marked sample library or click **Remove samples** to begin with your own research. Import a PubMed `.nbib`, `.bib`, `.ris`, `.json`, or EndNote `.xml` file using **Import library**.
 
@@ -14,7 +14,7 @@ Your data stays in your local library. Make a complete backup in **Settings** be
 
 Read **README.md** for all features, data locations, development instructions, and current limits. **Citograph-preview.png** and **Citograph-preview-dark.png** show the interface.
 
-**Microsoft Word:** save and close all Word windows, double-click **Install Word Add-in.cmd**, then reopen Word. Use the **Citograph** tab for citations, bibliographies, and the document's traveling library. Read **word-addin/WORD_GUIDE.md**. The desktop app is version 1.4.2; its Word document engine is version 1.4.
+**Microsoft Word:** save and close all Word windows, double-click **Install Word Add-in.cmd**, then reopen Word. Use the **Citograph** tab for citations, bibliographies, and the document's traveling library. Read **word-addin/WORD_GUIDE.md**. The desktop app is version 1.4.3; its Word document engine is version 1.4.3.
 
 **Style maker:** open **Style Studio**. Python is bundled. Build or edit a style, preview it, save a version, then inspect Word and apply the saved style. Read **STYLE_STUDIO_GUIDE.md**. EndNote .ens import currently creates a guided draft that needs review; it does not decode all original formatting rules.
 
