@@ -2,7 +2,7 @@
 
 Your citation and research workspace is ready.
 
-**To open it:** double-click **Start Citograph.cmd** in this folder. You can also open **release/v1.4.0/win-unpacked/Citograph.exe** directly.
+**To open it:** use the **Citograph** desktop shortcut or double-click **Start Citograph.cmd** in this folder. The launcher selects the newest packaged build automatically. You can also open **release/win-unpacked/Citograph.exe** directly; this main location now contains version **1.4.0**.
 
 **To install it:** run **release/Citograph Setup 1.4.0.exe**. Choose your installation folder; the installer can create a desktop shortcut.
 
